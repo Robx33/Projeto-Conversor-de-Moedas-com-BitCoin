@@ -1,10 +1,15 @@
+
+// "Pega" o button e o select no html
+
 const button = document.getElementById('convert-button')
 const select = document.getElementById('currency-select')
 
 
 const dolar = 5.2
-const euro = 5.9
+const euro = 5.9       
 const bitcoin = 109.716
+
+// Função que irá converter os valores ( click )
 
 const convertValues = () => {
     const inputReais = document.getElementById('input-real').value
@@ -35,12 +40,12 @@ const convertValues = () => {
 
     }
     
-
 }
+// Função que irá mudar a imagem e o nome da moeda ( change )
 
 changeSelect = () => {
-    const currencyName = document.getElementById('currency-name')
-    const currencyImg = document.getElementById('currency-img')
+    const currencyName = document.getElementById('currency-name') // Pega o <p> Real </p>
+    const currencyImg = document.getElementById('currency-img') // Pega a img
 
     if (select.value === 'US$ Dólar Americano') {
         currencyName.innerHTML = 'Dólar Americano'
@@ -57,8 +62,12 @@ changeSelect = () => {
         currencyImg.src = './assets/imagem-bitcoin.svg'
     }
 
-    convertValues()
+    convertValues()  /* Quando tem um change para troca da imagem e o texto, chamo também essa função 
+                            para fazer converter e fazer os cálculos dos valores */
 }
+
+// Evento de click irá puxar a função convertValues
+// Evento de mudança irá puxar a função changeSelect
 
 button.addEventListener('click', convertValues)
 select.addEventListener('change', changeSelect)
